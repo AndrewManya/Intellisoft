@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    
+    .navbar {
+      width: 100%;
+      background-color: #555;
+      overflow: auto;
+    }
+    
+    .navbar a {
+      float:left;
+      padding: 12px;
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .navbar a:hover {
+      background-color: #000;
+    }
+    
+    .active {
+      background-color: #04AA6D;
+    }
+    
+    @media screen and (max-width: 500px) {
+      .navbar a {
+        float: none;
+        display: block;
+      }
+    }
+    </style>
+        
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient information</title>
+<link rel="style" type="text/css" href="in-patients-style.css">
+
+   
+    <nav class="navbar">
+        <ul style="display: flex; list-style-type: none; padding: 5px; margin: 5px;"><br>
+        <li style="padding-left:5px"><a href="home.html">Home</a></li> <br>
+        <li style="padding-left: 5px;"><a href="Registrationpage.html">Registration page</a></li><br>
+        <li style="padding-left: 5px;"><a href="Vitals.html">Vitals Section</a></li><br>
+        <li style="padding-left: 5px;"><a href="Patientslist.html">Patients listing</a></li>  <br>        
+    </ul>
+ </nav>
+ <style>
+    
+    body{
+        display:flexbox;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1em;
+        padding: 28px;
+        justify-content: center;
+        text-align: center;
+
+
+    }
+ </style>
+   </head>
+<body>
+   
+     <form action="">
+
+ 
+
+            <div style="margin-bottom: 20px;margin-top: 20px;">
+
+        <label for="">First Name</label>
+        <input type="text" name="first name" id="firstname"><br>
+        </div>
+
+        <div style="margin-bottom: 40px;">
+        <label for="">Second Name</label>
+        <input type="text" name="second name" id="secondname" ><br>
+    </div>
+    
+        <div style="margin-bottom: 40px;"><label for="dob">Date of Birth</label>
+        <input type="date" name="date of birth" id="dob" > <br>
+    </div>
+
+
+      <div style="margin-bottom: 40px;"  <legend>Gender</legend>
+        <label for="">Male</label>
+        <input type="radio" name="Gender" id="Male" value="Male" checked>
+
+        <label for="">Female</label>
+        <input type="radio" name="Gender" id="Female" value="Female"checked>
+        <br>
+       <div style="margin-top: 20px;"> <button type="reset" value="reset">Clear</button>
+        <button type="submit" value="submit">Save</button>
+    </div>
+    </form>
+    </div>
+</body>
+</html>

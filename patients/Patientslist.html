@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    
+    .navbar {
+      width: 100%;
+      background-color: #555;
+      overflow: auto;
+    }
+    
+    .navbar a {
+      float:left;
+      padding: 12px;
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    .navbar a:hover {
+      background-color: #000;
+    }
+    
+    .active {
+      background-color: #04AA6D;
+    }
+    .table {
+        border: 1px solid black;
+        width: 100%;
+    }
+    
+    @media screen and (max-width: 500px) {
+      .navbar a {
+        float: none;
+        display: block;
+      }
+    }
+    </style>
+        
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient information</title>
+<link rel="style" type="text/css" href="in-patients-style.css">
+
+   
+    <nav class="navbar">
+        <ul style="display: flex; list-style-type: none; padding: 5px; margin: 5px;"><br>
+        <li style="padding-left:5px"><a href="home.html">Home</a></li> <br>
+        <li style="padding-left: 5px;"><a href="Registrationpage.html">Registration page</a></li><br>
+        <li style="padding-left: 5px;"><a href="Vitals.html">Vitals Section</a></li><br>
+        <li style="padding-left: 5px;"><a href="Patientslist.html">Patients listing</a></li>  <br>        
+    </ul>
+ </nav>
+  
+  <table> 
+ <tr>
+        <th style="border: 1px solid black;">Full Names</th>
+        <th style="border: 1px solid black;">Age</th>
+        <th style="border: 1px solid black;">BMI status</th>
+    </tr>
+</table>
+
+<form onsubmit="return mergenames()"

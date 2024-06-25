@@ -1,0 +1,667 @@
+
+User@DESKTOP-47KGS24 MINGW64 ~
+$ ssh dhis@77.237,235,239
+ssh: Could not resolve hostname 77.237,235,239: Name or service not known
+
+User@DESKTOP-47KGS24 MINGW64 ~
+$ ssh dhis@77.237.235.239
+The authenticity of host '77.237.235.239 (77.237.235.239)' can't be established.
+ED25519 key fingerprint is SHA256:3O4AIs+jCH2a2j5NgTHYomVocIzAuycl81gWlF4sIOY.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '77.237.235.239' (ED25519) to the list of known hosts.
+dhis@77.237.235.239's password:
+Connection closed by 77.237.235.239 port 22
+
+User@DESKTOP-47KGS24 MINGW64 ~
+$ --
+bash: --: command not found
+
+User@DESKTOP-47KGS24 MINGW64 ~
+$ ssh dhis@77.237.235.239
+dhis@77.237.235.239's password:
+Permission denied, please try again.
+dhis@77.237.235.239's password:
+Permission denied, please try again.
+dhis@77.237.235.239's password:
+Connection closed by 77.237.235.239 port 22
+
+User@DESKTOP-47KGS24 MINGW64 ~
+$ ssh dhis@77.237.235.239
+dhis@77.237.235.239's password:
+Permission denied, please try again.
+dhis@77.237.235.239's password:
+Welcome to Ubuntu 22.04.4 LTS (GNU/Linux 5.15.0-25-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+  _____
+ / ___/___  _  _ _____ _   ___  ___
+| |   / _ \| \| |_   _/ \ | _ )/ _ \
+| |__| (_) | .` | | |/ _ \| _ \ (_) |
+ \____\___/|_|\_| |_/_/ \_|___/\___/
+
+Welcome!
+
+This server is hosted by Contabo. If you have any questions or need help,
+please don't hesitate to contact us at support@contabo.com.
+
+Last login: Sun Jun 23 19:22:31 2024 from 41.186.78.46
+dhis@vmi1838542:~$ sudo su
+[sudo] password for dhis:
+Sorry, try again.
+[sudo] password for dhis:
+root@vmi1838542:/home/dhis# sudo ufw limit 22
+Rule added
+Rule added (v6)
+root@vmi1838542:/home/dhis# sudo ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+root@vmi1838542:/home/dhis# ^M
+: command not found
+root@vmi1838542:/home/dhis# git clone https://github.com/dhis2/dhis2-server-tools
+Cloning into 'dhis2-server-tools'...
+remote: Enumerating objects: 2054, done.
+remote: Counting objects: 100% (521/521), done.
+remote: Compressing objects: 100% (314/314), done.
+remote: Total 2054 (delta 256), reused 384 (delta 174), pack-reused 1533
+Receiving objects: 100% (2054/2054), 2.06 MiB | 10.95 MiB/s, done.
+Resolving deltas: 100% (1020/1020), done.
+root@vmi1838542:/home/dhis# cd dhis2-server-tools
+root@vmi1838542:/home/dhis/dhis2-server-tools# cp deploy/inventory/{hosts.template,hosts}
+root@vmi1838542:/home/dhis/dhis2-server-tools# nano deploy/inventory/hosts
+root@vmi1838542:/home/dhis/dhis2-server-tools#
+root@vmi1838542:/home/dhis/dhis2-server-tools# cd deploy
+root@vmi1838542:/home/dhis/dhis2-server-tools/deploy# sudo ./deploy
+sudo: ./deploy: command not found
+root@vmi1838542:/home/dhis/dhis2-server-tools/deploy# sudo ./deploy.sh
+Deploying dhis2 with lxd ...
+
+PLAY [Preparing localhost] *************************************************************************************************************************************************
+
+TASK [pre-install : Pre-requisites | lxd] **********************************************************************************************************************************
+included: /home/dhis/dhis2-server-tools/deploy/roles/pre-install/tasks/lxd.yml for 127.0.0.1
+
+TASK [pre-install : Set Ansible connection to local] ***********************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : Gathering facts] ***************************************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : Update and upgrade the host] ***************************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : Ensure python's netaddr is installed] ******************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : Ensure snapd is installed] *****************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [pre-install : Ensure lxd is installed] *******************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [pre-install : Getting lxc info] **************************************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : Creating lxd-preseed.yml] ******************************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : Backup lxd-preseed configuration to /etc directory] ****************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [pre-install : Initiating lxd with lxd-preseed.yml] *******************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [pre-install : Restarting LXD service] ********************************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : Making lxd restart idempotent] *************************************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [pre-install : Copy service sripts to /usr/local/bin/] ****************************************************************************************************************
+ok: [127.0.0.1] => (item=dhis2-dbactivity)
+ok: [127.0.0.1] => (item=dhis2-deploy-war)
+ok: [127.0.0.1] => (item=dhis2-logview)
+ok: [127.0.0.1] => (item=dhis2-restoredb)
+
+TASK [pre-install : Including firewall configuration tasks on the host] ****************************************************************************************************
+included: /home/dhis/dhis2-server-tools/deploy/roles/pre-install/tasks/firewall.yml for 127.0.0.1
+
+TASK [pre-install : Checking firewall status] ******************************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : UFW] ***************************************************************************************************************************************************
+skipping: [127.0.0.1]
+
+TASK [pre-install : End play if firewall is n not enabled] *****************************************************************************************************************
+skipping: [127.0.0.1]
+
+TASK [pre-install : Set UFW default forward policy to ACCEPT] **************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : Add rules for lxd bridge] ******************************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : Configure host to NAT to the proxy container] **********************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : Get the list of stopped Containers] ********************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [pre-install : Remove stopped LXC containers] *************************************************************************************************************************
+skipping: [127.0.0.1]
+
+PLAY [DHIS2 setup] *********************************************************************************************************************************************************
+
+TASK [postgres : Including tasks | lxd] ************************************************************************************************************************************
+skipping: [proxy]
+skipping: [dhis]
+skipping: [monitor]
+included: /home/dhis/dhis2-server-tools/deploy/roles/postgres/tasks/lxd.yml for postgres
+
+TASK [postgres : Creating PostgreSQL containers] ***************************************************************************************************************************
+changed: [postgres]
+
+TASK [postgres : Get facts] ************************************************************************************************************************************************
+ok: [postgres]
+
+TASK [postgres : Ensuring container has configured static ip address] ******************************************************************************************************
+skipping: [postgres]
+
+TASK [postgres : Installing postgreSQL-13 database] ************************************************************************************************************************
+included: /home/dhis/dhis2-server-tools/deploy/roles/postgres/tasks/pg-install.yml for postgres
+
+TASK [postgres : Updating and Upgrading packages] **************************************************************************************************************************
+ok: [postgres]
+
+TASK [postgres : Adding postgresql repo signing key] ***********************************************************************************************************************
+changed: [postgres]
+
+TASK [postgres : Adding postgres apt repository to sources list] ***********************************************************************************************************
+changed: [postgres]
+
+TASK [postgres : Installing postgres version 13] ***************************************************************************************************************************
+changed: [postgres]
+
+TASK [postgres : Custom postgresql conf] ***********************************************************************************************************************************
+changed: [postgres]
+
+TASK [postgres : Ensure postgresql is running] *****************************************************************************************************************************
+ok: [postgres]
+
+TASK [postgres : Adding root postgresql role] ******************************************************************************************************************************
+changed: [postgres]
+
+TASK [postgres : Postgresql | listen_addresses '*'] ************************************************************************************************************************
+changed: [postgres]
+
+TASK [postgres : Flushing Handlers] ****************************************************************************************************************************************
+
+RUNNING HANDLER [postgres : Restart Postgres] ******************************************************************************************************************************
+changed: [postgres]
+
+TASK [proxy : Including tasks for lxd] *************************************************************************************************************************************
+skipping: [postgres]
+skipping: [dhis]
+skipping: [monitor]
+included: /home/dhis/dhis2-server-tools/deploy/roles/proxy/tasks/lxd.yml for proxy
+
+TASK [proxy : Create proxy container] **************************************************************************************************************************************
+changed: [proxy]
+
+TASK [proxy : Get facts] ***************************************************************************************************************************************************
+ok: [proxy]
+
+TASK [proxy : Applying container static ip address] ************************************************************************************************************************
+skipping: [proxy]
+
+TASK [proxy : Installing nginx proxy] **************************************************************************************************************************************
+included: /home/dhis/dhis2-server-tools/deploy/roles/proxy/tasks/nginx-install.yml for proxy
+
+TASK [proxy : Open http port 80] *******************************************************************************************************************************************
+changed: [proxy]
+
+TASK [proxy : Open https port 443] *****************************************************************************************************************************************
+changed: [proxy]
+
+TASK [proxy : Ensure apache2 is stopped and disabled] **********************************************************************************************************************
+ok: [proxy]
+
+TASK [proxy : Updating and Upgrading] **************************************************************************************************************************************
+ok: [proxy]
+
+TASK [proxy : Installing Nginx] ********************************************************************************************************************************************
+changed: [proxy]
+
+TASK [proxy : Disabling nginx version show] ********************************************************************************************************************************
+changed: [proxy]
+
+TASK [proxy : Remove default nginx site] ***********************************************************************************************************************************
+changed: [proxy]
+
+TASK [proxy : Generating Diffie–Hellman key parameters, takes a while, you may grab some coffee] ***************************************************************************
+changed: [proxy]
+
+TASK [proxy : Creating nginx upstream directory] ***************************************************************************************************************************
+changed: [proxy]
+
+TASK [proxy : Location configs munin] **************************************************************************************************************************************
+changed: [proxy]
+
+TASK [proxy : Include tasks securing-munin] ********************************************************************************************************************************
+included: /home/dhis/dhis2-server-tools/deploy/roles/proxy/tasks/securing-munin.yml for proxy
+
+TASK [proxy : Install python3-passlib] *************************************************************************************************************************************
+changed: [proxy]
+
+TASK [proxy : Munin authenticatin, defaults: Username: admin, password: district] ******************************************************************************************
+changed: [proxy] => (item=admin)
+
+TASK [monitoring : Include tasks for lxd] **********************************************************************************************************************************
+skipping: [proxy]
+skipping: [postgres]
+skipping: [dhis]
+included: /home/dhis/dhis2-server-tools/deploy/roles/monitoring/tasks/lxd.yml for monitor
+
+TASK [monitoring : Creating monitoring container] **************************************************************************************************************************
+changed: [monitor]
+
+TASK [monitoring : Get facts] **********************************************************************************************************************************************
+ok: [monitor]
+
+TASK [monitoring : Ensuring container has configured static ip address] ****************************************************************************************************
+skipping: [monitor]
+
+TASK [monitoring : Include server tasks for munin] *************************************************************************************************************************
+included: /home/dhis/dhis2-server-tools/deploy/roles/monitoring/tasks/munin-server.yml for monitor
+
+TASK [monitoring : Update and upgrade packages] ****************************************************************************************************************************
+ok: [monitor]
+
+TASK [monitoring : Install munin server] ***********************************************************************************************************************************
+changed: [monitor]
+
+TASK [monitoring : Copy munin configurations.] *****************************************************************************************************************************
+changed: [monitor] => (item={'src': 'munin.conf.j2', 'dest': '/etc/munin/munin.conf'})
+changed: [monitor] => (item={'src': 'hosts.conf.j2', 'dest': '/etc/munin/munin-conf.d/hosts.conf'})
+
+TASK [monitoring : Copy munin configuration for its access via apache2 proxy] **********************************************************************************************
+changed: [monitor]
+
+TASK [monitoring : Enable apache2 configuration for munin access from the web.] ********************************************************************************************
+changed: [monitor]
+
+TASK [monitoring : Allow https access from proxy] **************************************************************************************************************************
+changed: [monitor] => (item=proxy)
+
+TASK [monitoring : Include client tasks for munin] *************************************************************************************************************************
+skipping: [postgres]
+skipping: [dhis]
+included: /home/dhis/dhis2-server-tools/deploy/roles/monitoring/tasks/munin-client.yml for proxy, monitor
+
+TASK [monitoring : Ensure munin-node is installed] *************************************************************************************************************************
+ok: [monitor]
+changed: [proxy]
+
+TASK [monitoring : Copy munin-node configuration] **************************************************************************************************************************
+changed: [proxy]
+changed: [monitor]
+
+TASK [monitoring : Ensure munin-node is running.] **************************************************************************************************************************
+ok: [proxy]
+ok: [monitor]
+
+TASK [monitoring : Open port 4949 (from munin server ) on monitored nodes] *************************************************************************************************
+changed: [proxy] => (item=monitor)
+changed: [monitor] => (item=monitor)
+
+TASK [monitoring : Include tasks for configuring munin on nginx] ***********************************************************************************************************
+skipping: [monitor]
+included: /home/dhis/dhis2-server-tools/deploy/roles/monitoring/tasks/nginx-munin.yml for proxy
+
+TASK [monitoring : Enable nginx modules for munin monitoring] **************************************************************************************************************
+changed: [proxy] => (item=nginx_status)
+changed: [proxy] => (item=nginx_request)
+
+TASK [monitoring : Include tasks for tomcat9] ******************************************************************************************************************************
+skipping: [proxy]
+skipping: [monitor]
+
+TASK [create-instance : DHIS2 instance setup with  lxd] ********************************************************************************************************************
+skipping: [proxy]
+skipping: [postgres]
+skipping: [monitor]
+included: /home/dhis/dhis2-server-tools/deploy/roles/create-instance/tasks/lxd.yml for dhis
+
+TASK [create-instance : Creating dhis2 containers] *************************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Gethering facts] ***********************************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Ensuring container has configured static ip address] ***********************************************************************************************
+skipping: [dhis]
+
+TASK [create-instance : Include tasks to setup postgresql] *****************************************************************************************************************
+skipping: [proxy]
+skipping: [postgres]
+skipping: [monitor]
+included: /home/dhis/dhis2-server-tools/deploy/roles/create-instance/tasks/generate-db-pass.yml for dhis
+
+TASK [create-instance : Generate database password] ************************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Include postgresql tasks] **************************************************************************************************************************
+skipping: [proxy]
+skipping: [dhis]
+skipping: [monitor]
+included: /home/dhis/dhis2-server-tools/deploy/roles/create-instance/tasks/postgresql-db.yml for postgres
+
+TASK [create-instance : Checking postgresql Version] ***********************************************************************************************************************
+ok: [postgres]
+
+TASK [create-instance : Edit pg_hba.conf permissions, allowing instances to connect] ***************************************************************************************
+changed: [postgres] => (item=dhis)
+
+TASK [create-instance : Firewall | Open port 5432 from dhis2 instances] ****************************************************************************************************
+changed: [postgres] => (item=dhis)
+
+TASK [create-instance : Edit pg_hba.conf permissions, instances db_gateway_address] ****************************************************************************************
+skipping: [postgres] => (item=dhis)
+skipping: [postgres]
+
+TASK [create-instance : Firewall | Open port 5432 from db_gateway_address] *************************************************************************************************
+skipping: [postgres] => (item=dhis)
+skipping: [postgres]
+
+TASK [create-instance : Create instances database role:] *******************************************************************************************************************
+changed: [postgres] => (item=dhis)
+
+TASK [create-instance : Creating dhis2 database/databases] *****************************************************************************************************************
+changed: [postgres] => (item=dhis)
+
+TASK [create-instance : Creating postgis,btree_gin and pg_trgm extensions] *************************************************************************************************
+changed: [postgres] => (item=postgis)
+changed: [postgres] => (item=btree_gin)
+changed: [postgres] => (item=pg_trgm)
+
+TASK [create-instance : Flushing Handlers] *********************************************************************************************************************************
+
+RUNNING HANDLER [create-instance : Reload Postgres] ************************************************************************************************************************
+changed: [postgres]
+
+TASK [create-instance : Include tasks for DHIS2 setup] *********************************************************************************************************************
+skipping: [proxy]
+skipping: [postgres]
+skipping: [monitor]
+included: /home/dhis/dhis2-server-tools/deploy/roles/create-instance/tasks/dhis2-setup.yml for dhis
+
+TASK [create-instance : Download dhis2 releases.json file] *****************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Load releases.json file] ***************************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Set DHIS2 release version] *************************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Set dhis2_latest_patchversion and sha256] **********************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Set dhis2_url] *************************************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Updating and Upgrading packages] *******************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Installing java and tomcat and zip] ****************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Creating /opt/dhis2 directory] *********************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Get sha256sum of dhis2.war file] *******************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Check running dhis2 version] ***********************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : ansible.builtin.debug] *****************************************************************************************************************************
+skipping: [dhis]
+
+TASK [create-instance : Download dhis2 war file] ***************************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Download dhis2.war with hard coded url] ************************************************************************************************************
+skipping: [dhis]
+
+TASK [create-instance : Copy dhis2.war file from ansible controller] *******************************************************************************************************
+skipping: [dhis]
+
+TASK [create-instance : Clean /var/lib/tomcat9/webapps] ********************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Creating webapps directories] **********************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Copy dhis2.conf to the instances] ******************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Copy server.xml to the instances] ******************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Creating tomcat9.service.d  directory] *************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Create systemd override file for tomcat9] **********************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Restrict tomcat user from running cron] ************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Restrict tomcat user from scheduling and running commands] *****************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Copy tomcat default configuration] *****************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Extracting dhis2.war file] *************************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Glowroot app monitoring] ***************************************************************************************************************************
+included: /home/dhis/dhis2-server-tools/deploy/roles/create-instance/tasks/glowroot.yml for dhis
+
+TASK [create-instance : Download and extract glowroot] *********************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Change ownership and permissions of glowroot.jar] **************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Find jar files in /opt/glowroot/lib] ***************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Change ownership and permissions of found jar files in /opt/glowroot/lib] **************************************************************************
+changed: [dhis] => (item={'path': '/opt/glowroot/lib/glowroot-logging-logstash.jar', 'mode': '0700', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 998, 'gid': 998, 'size': 683207, 'inode': 25431298, 'dev': 2051, 'nlink': 1, 'atime': 1684053294.0, 'mtime': 1684053294.0, 'ctime': 1719166410.5097704, 'gr_name': 'tomcat', 'pw_name': 'tomcat', 'wusr': True, 'rusr': True, 'xusr': True, 'wgrp': False, 'rgrp': False, 'xgrp': False, 'woth': False, 'roth': False, 'xoth': False, 'isuid': False, 'isgid': False})
+changed: [dhis] => (item={'path': '/opt/glowroot/lib/glowroot-central-collector-https-osx.jar', 'mode': '0700', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 998, 'gid': 998, 'size': 5122606, 'inode': 25431291, 'dev': 2051, 'nlink': 1, 'atime': 1684053294.0, 'mtime': 1684053294.0, 'ctime': 1719166410.5097704, 'gr_name': 'tomcat', 'pw_name': 'tomcat', 'wusr': True, 'rusr': True, 'xusr': True, 'wgrp': False, 'rgrp': False, 'xgrp': False, 'woth': False, 'roth': False, 'xoth': False, 'isuid': False, 'isgid': False})
+changed: [dhis] => (item={'path': '/opt/glowroot/lib/glowroot-embedded-collector.jar', 'mode': '0700', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 998, 'gid': 998, 'size': 5001503, 'inode': 25431288, 'dev': 2051, 'nlink': 1, 'atime': 1684053188.0, 'mtime': 1684053188.0, 'ctime': 1719166410.5097704, 'gr_name': 'tomcat', 'pw_name': 'tomcat', 'wusr': True, 'rusr': True, 'xusr': True, 'wgrp': False, 'rgrp': False, 'xgrp': False, 'woth': False, 'roth': False, 'xoth': False, 'isuid': False, 'isgid': False})
+changed: [dhis] => (item={'path': '/opt/glowroot/lib/glowroot-central-collector-https-windows.jar', 'mode': '0700', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 998, 'gid': 998, 'size': 5122608, 'inode': 25431290, 'dev': 2051, 'nlink': 1, 'atime': 1684053292.0, 'mtime': 1684053292.0, 'ctime': 1719166410.5097704, 'gr_name': 'tomcat', 'pw_name': 'tomcat', 'wusr': True, 'rusr': True, 'xusr': True, 'wgrp': False, 'rgrp': False, 'xgrp': False, 'woth': False, 'roth': False, 'xoth': False, 'isuid': False, 'isgid': False})
+changed: [dhis] => (item={'path': '/opt/glowroot/lib/glowroot-central-collector-https-linux.jar', 'mode': '0700', 'isdir': False, 'ischr': False, 'isblk': False, 'isreg': True, 'isfifo': False, 'islnk': False, 'issock': False, 'uid': 998, 'gid': 998, 'size': 5122607, 'inode': 25431289, 'dev': 2051, 'nlink': 1, 'atime': 1684053292.0, 'mtime': 1684053292.0, 'ctime': 1719166410.5097704, 'gr_name': 'tomcat', 'pw_name': 'tomcat', 'wusr': True, 'rusr': True, 'xusr': True, 'wgrp': False, 'rgrp': False, 'xgrp': False, 'woth': False, 'roth': False, 'xoth': False, 'isuid': False, 'isgid': False})
+
+TASK [create-instance : Check if /opt/glowroot/admin.json file exists] *****************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Copy glowroot configs to the instances] ************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Configure glowroot basepath] ***********************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Open port 8080 (tomcat) access from from proxy] ****************************************************************************************************
+changed: [dhis] => (item=proxy)
+
+TASK [create-instance : Open port 4000 (glowroot) access from proxy] *******************************************************************************************************
+changed: [dhis] => (item=proxy)
+
+TASK [create-instance : Flushing handlers] *********************************************************************************************************************************
+
+RUNNING HANDLER [create-instance : Restart Tomcat] *************************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Include tasks for nginx configuration.] ************************************************************************************************************
+skipping: [postgres]
+skipping: [dhis]
+skipping: [monitor]
+included: /home/dhis/dhis2-server-tools/deploy/roles/create-instance/tasks/nginx.yml for proxy
+
+TASK [create-instance : Assert two instances under the same fqdn have unique Instance Names] *******************************************************************************
+skipping: [proxy] => (item=dhis)
+skipping: [proxy]
+
+TASK [create-instance : Include TLS configurarion tasks] *******************************************************************************************************************
+skipping: [proxy] => (item=dhis)
+skipping: [proxy]
+
+TASK [create-instance : Instance location configuration] *******************************************************************************************************************
+changed: [proxy] => (item=dhis)
+
+TASK [create-instance : Include selfsigned TLS Certificate tasks, fqdn is not defined] *************************************************************************************
+included: /home/dhis/dhis2-server-tools/deploy/roles/create-instance/tasks/selfsigned.yml for proxy => (item=dhis)
+
+TASK [create-instance : Creating TLS certificate directory] ****************************************************************************************************************
+changed: [proxy]
+
+TASK [create-instance : Generating private key RSA, 4096 bits] *************************************************************************************************************
+changed: [proxy]
+
+TASK [create-instance : Generating selfsigned certificate] *****************************************************************************************************************
+changed: [proxy]
+
+TASK [create-instance : Find files to delete in /etc/nginx/conf.d/] ********************************************************************************************************
+ok: [proxy]
+
+TASK [create-instance : Clean /etc/nginx/conf.d/ directory] ****************************************************************************************************************
+skipping: [proxy]
+
+TASK [create-instance : Copy nginx site configuration] *********************************************************************************************************************
+skipping: [proxy] => (item=dhis)
+skipping: [proxy]
+
+TASK [create-instance : Default nginx configuration, fqdn is not defined] **************************************************************************************************
+changed: [proxy] => (item=dhis)
+
+TASK [create-instance : Start nginx service] *******************************************************************************************************************************
+ok: [proxy]
+
+TASK [create-instance : Flush Handlers] ************************************************************************************************************************************
+
+RUNNING HANDLER [create-instance : Restart Munin-Node] *********************************************************************************************************************
+changed: [proxy]
+
+RUNNING HANDLER [Reload Nginx] *********************************************************************************************************************************************
+changed: [proxy]
+
+TASK [create-instance : Include tasks for Tomcat monitoring with Munin.] ***************************************************************************************************
+skipping: [proxy]
+skipping: [postgres]
+skipping: [monitor]
+included: /home/dhis/dhis2-server-tools/deploy/roles/create-instance/tasks/tomcat-munin-monitoring.yml for dhis
+
+TASK [create-instance : Ensure munin-node is installed] ********************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Copy munin-node configuration] *********************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Ensure munin-node is running.] *********************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Open port 4949 (from munin server ) on monitored nodes] ********************************************************************************************
+changed: [dhis] => (item=monitor)
+
+TASK [create-instance : Generate manager_password] *************************************************************************************************************************
+ok: [dhis]
+
+TASK [create-instance : Copy tomcat-users.xml file] ************************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Add configuration block to the file] ***************************************************************************************************************
+changed: [dhis]
+
+TASK [create-instance : Create symlinks for Munin plugins] *****************************************************************************************************************
+changed: [dhis] => (item=tomcat_access)
+changed: [dhis] => (item=tomcat_jvm)
+changed: [dhis] => (item=tomcat_threads)
+changed: [dhis] => (item=tomcat_volume)
+
+TASK [Install and configure unattended_upgrades] ***************************************************************************************************************************
+skipping: [proxy]
+skipping: [postgres]
+skipping: [monitor]
+included: /home/dhis/dhis2-server-tools/deploy/playbooks/unattended_upgrades.yml for dhis
+
+TASK [Install unattended upgrades package] *********************************************************************************************************************************
+ok: [dhis]
+
+TASK [Enabling unattended-updates, APT::Periodic::Update-Package-Lists] ****************************************************************************************************
+ok: [dhis]
+
+TASK [Enabling unattended-upgrades, APT::Periodic::Unattended-Upgrade] *****************************************************************************************************
+ok: [dhis]
+
+TASK [Enabling Package upgrades] *******************************************************************************************************************************************
+changed: [dhis]
+
+TASK [Enable remove unused deps in /etc/apt/apt.conf.d/50unattended-upgrades] **********************************************************************************************
+changed: [dhis]
+
+RUNNING HANDLER [monitoring : Restart Apache2] *****************************************************************************************************************************
+changed: [monitor]
+
+RUNNING HANDLER [create-instance : Restart Munin-Node] *********************************************************************************************************************
+changed: [monitor]
+changed: [dhis]
+
+RUNNING HANDLER [Restart Unattended-upgrades] ******************************************************************************************************************************
+changed: [dhis]
+
+PLAY [Creating backup script] **********************************************************************************************************************************************
+
+TASK [backups : Configuring backups scripts |  lxd] ************************************************************************************************************************
+included: /home/dhis/dhis2-server-tools/deploy/roles/backups/tasks/lxd.yml for postgres
+
+TASK [backups : Change connection to local] ********************************************************************************************************************************
+ok: [postgres]
+
+TASK [backups : Create a list of dhis2 databases to backup] ****************************************************************************************************************
+ok: [postgres]
+
+TASK [backups : Ensure /usr/local/etc/dhis directory exists] ***************************************************************************************************************
+ok: [postgres]
+
+TASK [backups : Configuring s3] ********************************************************************************************************************************************
+skipping: [postgres]
+
+TASK [backups : Create dhis2-env from template] ****************************************************************************************************************************
+changed: [postgres]
+
+TASK [backups : Create backup script from the template] ********************************************************************************************************************
+ok: [postgres]
+
+TASK [backups : Add backup script to crontab] ******************************************************************************************************************************
+ok: [postgres]
+
+PLAY RECAP *****************************************************************************************************************************************************************
+127.0.0.1                  : ok=20   changed=5    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+dhis                       : ok=55   changed=31   unreachable=0    failed=0    skipped=10   rescued=0    ignored=0
+monitor                    : ok=17   changed=10   unreachable=0    failed=0    skipped=12   rescued=0    ignored=0
+postgres                   : ok=28   changed=15   unreachable=0    failed=0    skipped=13   rescued=0    ignored=0
+proxy                      : ok=35   changed=22   unreachable=0    failed=0    skipped=14   rescued=0    ignored=0
+
+root@vmi1838542:/home/dhis/dhis2-server-tools/deploy# client_loop: send disconnect: Connection reset by peer
+
+User@DESKTOP-47KGS24 MINGW64 ~
+$ ssh dhis@77.237,235,239^C
+
+User@DESKTOP-47KGS24 MINGW64 ~
+$ ssh dhis@77.237,235,239
